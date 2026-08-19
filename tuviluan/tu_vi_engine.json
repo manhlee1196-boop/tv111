@@ -1,0 +1,1252 @@
+{
+  "schema_version": "2.0",
+  "engine_name": "tuviad_deterministic_tuvi_engine",
+  "language": "vi",
+  "calendar": {
+    "timezone": "Asia/Ho_Chi_Minh",
+    "supported": [
+      "gregorian",
+      "lunar_vietnamese"
+    ],
+    "late_ty_hour_policy": "configurable",
+    "lunar_conversion": {
+      "required_for_solar_input": true,
+      "recommended_source": "Hồ Ngọc Đức / amlich-compatible Vietnamese calendar",
+      "note": "Do not let LLM infer lunar dates."
+    }
+  },
+  "conventions": {
+    "branch_order": [
+      "Tý",
+      "Sửu",
+      "Dần",
+      "Mão",
+      "Thìn",
+      "Tị",
+      "Ngọ",
+      "Mùi",
+      "Thân",
+      "Dậu",
+      "Tuất",
+      "Hợi"
+    ],
+    "stem_order": [
+      "Giáp",
+      "Ất",
+      "Bính",
+      "Đinh",
+      "Mậu",
+      "Kỷ",
+      "Canh",
+      "Tân",
+      "Nhâm",
+      "Quý"
+    ],
+    "palace_order": [
+      "Mệnh",
+      "Phụ Mẫu",
+      "Phúc Đức",
+      "Điền Trạch",
+      "Quan Lộc",
+      "Nô Bộc",
+      "Thiên Di",
+      "Tật Ách",
+      "Tài Bạch",
+      "Tử Tức",
+      "Phu Thê",
+      "Huynh Đệ"
+    ],
+    "gender": [
+      "Nam",
+      "Nữ"
+    ],
+    "yin_yang": [
+      "Dương",
+      "Âm"
+    ],
+    "five_elements": [
+      "Kim",
+      "Mộc",
+      "Thủy",
+      "Hỏa",
+      "Thổ"
+    ]
+  },
+  "palaces": {
+    "count": 12,
+    "names": [
+      "Mệnh",
+      "Phụ Mẫu",
+      "Phúc Đức",
+      "Điền Trạch",
+      "Quan Lộc",
+      "Nô Bộc",
+      "Thiên Di",
+      "Tật Ách",
+      "Tài Bạch",
+      "Tử Tức",
+      "Phu Thê",
+      "Huynh Đệ"
+    ],
+    "relationships": {
+      "xung_chieu": {
+        "Tý": "Ngọ",
+        "Sửu": "Mùi",
+        "Dần": "Thân",
+        "Mão": "Dậu",
+        "Thìn": "Tuất",
+        "Tị": "Hợi",
+        "Ngọ": "Tý",
+        "Mùi": "Sửu",
+        "Thân": "Dần",
+        "Dậu": "Mão",
+        "Tuất": "Thìn",
+        "Hợi": "Tị"
+      },
+      "nhi_hop": {
+        "Tý": "Sửu",
+        "Sửu": "Tý",
+        "Dần": "Hợi",
+        "Hợi": "Dần",
+        "Mão": "Tuất",
+        "Tuất": "Mão",
+        "Thìn": "Dậu",
+        "Dậu": "Thìn",
+        "Tị": "Thân",
+        "Thân": "Tị",
+        "Ngọ": "Mùi",
+        "Mùi": "Ngọ"
+      },
+      "tam_hop": [
+        [
+          "Thân",
+          "Tý",
+          "Thìn"
+        ],
+        [
+          "Dần",
+          "Ngọ",
+          "Tuất"
+        ],
+        [
+          "Hợi",
+          "Mão",
+          "Mùi"
+        ],
+        [
+          "Tị",
+          "Dậu",
+          "Sửu"
+        ]
+      ]
+    }
+  },
+  "elements": {
+    "stem_elements": {
+      "Giáp": "Mộc",
+      "Ất": "Mộc",
+      "Bính": "Hỏa",
+      "Đinh": "Hỏa",
+      "Mậu": "Thổ",
+      "Kỷ": "Thổ",
+      "Canh": "Kim",
+      "Tân": "Kim",
+      "Nhâm": "Thủy",
+      "Quý": "Thủy"
+    },
+    "branch_elements": {
+      "Tý": "Thủy",
+      "Sửu": "Thổ",
+      "Dần": "Mộc",
+      "Mão": "Mộc",
+      "Thìn": "Thổ",
+      "Tị": "Hỏa",
+      "Ngọ": "Hỏa",
+      "Mùi": "Thổ",
+      "Thân": "Kim",
+      "Dậu": "Kim",
+      "Tuất": "Thổ",
+      "Hợi": "Thủy"
+    },
+    "bureau_numbers": {
+      "Kim tứ cục": 4,
+      "Mộc tam cục": 3,
+      "Thủy nhị cục": 2,
+      "Hỏa lục cục": 6,
+      "Thổ ngũ cục": 5
+    }
+  },
+  "stars": {
+    "Tử Vi": {
+      "id": 1,
+      "element": "Thổ",
+      "group": "main",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Liêm Trinh": {
+      "id": 2,
+      "element": "Hỏa",
+      "group": "main",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Thiên Đồng": {
+      "id": 3,
+      "element": "Thủy",
+      "group": "main",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Vũ Khúc": {
+      "id": 4,
+      "element": "Kim",
+      "group": "main",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Thái Dương": {
+      "id": 5,
+      "element": "Hỏa",
+      "group": "main",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Thiên Cơ": {
+      "id": 6,
+      "element": "Mộc",
+      "group": "main",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Thiên Phủ": {
+      "id": 7,
+      "element": "Thổ",
+      "group": "main",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Thái Âm": {
+      "id": 8,
+      "element": "Thủy",
+      "group": "main",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Tham Lang": {
+      "id": 9,
+      "element": "Thủy",
+      "group": "main",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Cự Môn": {
+      "id": 10,
+      "element": "Thủy",
+      "group": "main",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Thiên Tướng": {
+      "id": 11,
+      "element": "Thủy",
+      "group": "main",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Thiên Lương": {
+      "id": 12,
+      "element": "Mộc",
+      "group": "main",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Thất Sát": {
+      "id": 13,
+      "element": "Kim",
+      "group": "main",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Phá Quân": {
+      "id": 14,
+      "element": "Thủy",
+      "group": "main",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Thái Tuế": {
+      "id": 15,
+      "element": "Hỏa",
+      "group": "thai_tue",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Thiếu Dương": {
+      "id": 16,
+      "element": "Hỏa",
+      "group": "thai_tue",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Tang Môn": {
+      "id": 17,
+      "element": "Mộc",
+      "group": "thai_tue",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Thiếu Âm": {
+      "id": 18,
+      "element": "Thủy",
+      "group": "thai_tue",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Quan Phù": {
+      "id": 38,
+      "element": "Hỏa",
+      "group": "loc_ton",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Tử Phù": {
+      "id": 20,
+      "element": "Kim",
+      "group": "thai_tue",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Tuế Phá": {
+      "id": 21,
+      "element": "Hỏa",
+      "group": "thai_tue",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Long Đức": {
+      "id": 22,
+      "element": "Thủy",
+      "group": "thai_tue",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Bạch Hổ": {
+      "id": 23,
+      "element": "Kim",
+      "group": "thai_tue",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Phúc Đức": {
+      "id": 24,
+      "element": "Thổ",
+      "group": "thai_tue",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Điếu Khách": {
+      "id": 25,
+      "element": "Hỏa",
+      "group": "thai_tue",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Trực Phù": {
+      "id": 26,
+      "element": "Kim",
+      "group": "thai_tue",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Lộc Tồn": {
+      "id": 27,
+      "element": "Thổ",
+      "group": "loc_ton",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Bác Sỹ": {
+      "id": 109,
+      "element": "Thủy",
+      "group": "loc_ton",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Lực Sỹ": {
+      "id": 28,
+      "element": "Hỏa",
+      "group": "loc_ton",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Thanh Long": {
+      "id": 29,
+      "element": "Thủy",
+      "group": "loc_ton",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Tiểu Hao": {
+      "id": 30,
+      "element": "Hỏa",
+      "group": "loc_ton",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Tướng Quân": {
+      "id": 31,
+      "element": "Mộc",
+      "group": "loc_ton",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Tấu Thư": {
+      "id": 32,
+      "element": "Kim",
+      "group": "loc_ton",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Phi Liêm": {
+      "id": 33,
+      "element": "Hỏa",
+      "group": "loc_ton",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Hỷ Thần": {
+      "id": 34,
+      "element": "Hỏa",
+      "group": "loc_ton",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Bệnh Phù": {
+      "id": 35,
+      "element": "Thổ",
+      "group": "loc_ton",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Đại Hao": {
+      "id": 36,
+      "element": "Hỏa",
+      "group": "loc_ton",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Phục Binh": {
+      "id": 37,
+      "element": "Hỏa",
+      "group": "loc_ton",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Tràng Sinh": {
+      "id": 39,
+      "element": "Thủy",
+      "group": "trang_sinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Mộc Dục": {
+      "id": 40,
+      "element": "Thủy",
+      "group": "trang_sinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Quan Đới": {
+      "id": 41,
+      "element": "Kim",
+      "group": "trang_sinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Lâm Quan": {
+      "id": 42,
+      "element": "Kim",
+      "group": "trang_sinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Đế Vượng": {
+      "id": 43,
+      "element": "Kim",
+      "group": "trang_sinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Suy": {
+      "id": 44,
+      "element": "Thủy",
+      "group": "trang_sinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Bệnh": {
+      "id": 45,
+      "element": "Hỏa",
+      "group": "trang_sinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Tử": {
+      "id": 46,
+      "element": "Hỏa",
+      "group": "trang_sinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Mộ": {
+      "id": 47,
+      "element": "Thổ",
+      "group": "trang_sinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Tuyệt": {
+      "id": 48,
+      "element": "Thổ",
+      "group": "trang_sinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Thai": {
+      "id": 49,
+      "element": "Thổ",
+      "group": "trang_sinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Dưỡng": {
+      "id": 50,
+      "element": "Mộc",
+      "group": "trang_sinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Đà La": {
+      "id": 51,
+      "element": "Kim",
+      "group": "sat_tinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Kình Dương": {
+      "id": 52,
+      "element": "Kim",
+      "group": "sat_tinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Địa Không": {
+      "id": 53,
+      "element": "Hỏa",
+      "group": "sat_tinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Địa Kiếp": {
+      "id": 54,
+      "element": "Hỏa",
+      "group": "sat_tinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Linh Tinh": {
+      "id": 55,
+      "element": "Hỏa",
+      "group": "sat_tinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Hỏa Tinh": {
+      "id": 56,
+      "element": "Hỏa",
+      "group": "sat_tinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Văn Xương": {
+      "id": 57,
+      "element": "Kim",
+      "group": "van_tinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Văn Khúc": {
+      "id": 58,
+      "element": "Thủy",
+      "group": "van_tinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Thiên Khôi": {
+      "id": 59,
+      "element": "Hỏa",
+      "group": "quy_tinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Thiên Việt": {
+      "id": 60,
+      "element": "Hỏa",
+      "group": "quy_tinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Tả Phù": {
+      "id": 61,
+      "element": "Thổ",
+      "group": "phu_tinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Hữu Bật": {
+      "id": 62,
+      "element": "Thổ",
+      "group": "phu_tinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Long Trì": {
+      "id": 63,
+      "element": "Thủy",
+      "group": "phu_tinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Phượng Các": {
+      "id": 64,
+      "element": "Thổ",
+      "group": "phu_tinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Tam Thai": {
+      "id": 65,
+      "element": "Mộc",
+      "group": "phu_tinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Bát Tọa": {
+      "id": 66,
+      "element": "Thủy",
+      "group": "phu_tinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Ân Quang": {
+      "id": 67,
+      "element": "Mộc",
+      "group": "phu_tinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Thiên Quý": {
+      "id": 68,
+      "element": "Thổ",
+      "group": "phu_tinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Thiên Khốc": {
+      "id": 69,
+      "element": "Thủy",
+      "group": "sat_tinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Thiên Hư": {
+      "id": 70,
+      "element": "Thủy",
+      "group": "sat_tinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Thiên Đức": {
+      "id": 71,
+      "element": "Hỏa",
+      "group": "phuc_tinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Nguyệt Đức": {
+      "id": 72,
+      "element": "Hỏa",
+      "group": "phuc_tinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Thiên Hình": {
+      "id": 73,
+      "element": "Hỏa",
+      "group": "hinh_tinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Thiên Riêu": {
+      "id": 74,
+      "element": "Thủy",
+      "group": "am_tinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Thiên Y": {
+      "id": 75,
+      "element": "Thủy",
+      "group": "phuc_tinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Quốc Ấn": {
+      "id": 76,
+      "element": "Thổ",
+      "group": "quy_tinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Đường Phù": {
+      "id": 77,
+      "element": "Mộc",
+      "group": "quyen_tinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Đào Hoa": {
+      "id": 78,
+      "element": "Mộc",
+      "group": "dao_hoa",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Hồng Loan": {
+      "id": 79,
+      "element": "Thủy",
+      "group": "dao_hoa",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Thiên Hỷ": {
+      "id": 80,
+      "element": "Thủy",
+      "group": "phuc_tinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Thiên Giải": {
+      "id": 81,
+      "element": "Hỏa",
+      "group": "giai_tinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Địa Giải": {
+      "id": 82,
+      "element": "Thổ",
+      "group": "giai_tinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Giải Thần": {
+      "id": 83,
+      "element": "Mộc",
+      "group": "giai_tinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Thai Phụ": {
+      "id": 84,
+      "element": "Kim",
+      "group": "van_tinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Phong Cáo": {
+      "id": 85,
+      "element": "Thổ",
+      "group": "quyen_tinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Thiên Tài": {
+      "id": 86,
+      "element": "Thổ",
+      "group": "phu_tinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Thiên Thọ": {
+      "id": 87,
+      "element": "Thổ",
+      "group": "phuc_tinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Thiên Thương": {
+      "id": 88,
+      "element": "Thổ",
+      "group": "sat_tinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Thiên Sứ": {
+      "id": 89,
+      "element": "Thủy",
+      "group": "sat_tinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Thiên La": {
+      "id": 90,
+      "element": "Thổ",
+      "group": "sat_tinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Địa Võng": {
+      "id": 91,
+      "element": "Thổ",
+      "group": "sat_tinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Hóa Khoa": {
+      "id": 92,
+      "element": "Thủy",
+      "group": "tu_hoa",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Hóa Quyền": {
+      "id": 93,
+      "element": "Thủy",
+      "group": "tu_hoa",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Hóa Lộc": {
+      "id": 94,
+      "element": "Mộc",
+      "group": "tu_hoa",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Hóa Kỵ": {
+      "id": 95,
+      "element": "Thủy",
+      "group": "tu_hoa",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Cô Thần": {
+      "id": 96,
+      "element": "Thổ",
+      "group": "am_tinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Quả Tú": {
+      "id": 97,
+      "element": "Thổ",
+      "group": "am_tinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Thiên Mã": {
+      "id": 98,
+      "element": "Hỏa",
+      "group": "thien_ma",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Phá Toái": {
+      "id": 99,
+      "element": "Hỏa",
+      "group": "sat_tinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Thiên Quan": {
+      "id": 100,
+      "element": "Hỏa",
+      "group": "phuc_tinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Thiên Phúc": {
+      "id": 101,
+      "element": "Hỏa",
+      "group": "phuc_tinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Lưu Hà": {
+      "id": 102,
+      "element": "Thủy",
+      "group": "sat_tinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Thiên Trù": {
+      "id": 103,
+      "element": "Thổ",
+      "group": "phuc_tinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Kiếp Sát": {
+      "id": 104,
+      "element": "Hỏa",
+      "group": "sat_tinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Hoa Cái": {
+      "id": 105,
+      "element": "Kim",
+      "group": "dao_hoa",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Văn Tinh": {
+      "id": 106,
+      "element": "Hỏa",
+      "group": "van_tinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Đẩu Quân": {
+      "id": 107,
+      "element": "Hỏa",
+      "group": "phu_tinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    },
+    "Thiên Không": {
+      "id": 108,
+      "element": "Thủy",
+      "group": "sat_tinh",
+      "enabled": true,
+      "source": "lasotuvi/Sao.py"
+    }
+  },
+  "main_star_system": {
+    "count": 14,
+    "tu_vi_group": [
+      "Tử Vi",
+      "Thiên Cơ",
+      "Thái Dương",
+      "Vũ Khúc",
+      "Thiên Đồng",
+      "Liêm Trinh"
+    ],
+    "thien_phu_group": [
+      "Thiên Phủ",
+      "Thái Âm",
+      "Tham Lang",
+      "Cự Môn",
+      "Thiên Tướng",
+      "Thiên Lương",
+      "Thất Sát",
+      "Phá Quân"
+    ],
+    "placement": {
+      "algorithm": "tu_vi_by_bureau_and_lunar_day",
+      "source_reference": "lasotuvi/App.py",
+      "offsets_from_tu_vi": {
+        "Liêm Trinh": 4,
+        "Thiên Đồng": 7,
+        "Vũ Khúc": 8,
+        "Thái Dương": 9,
+        "Thiên Cơ": 11
+      },
+      "thien_phu": {
+        "formula": "dichCung(3, 3 - viTriTuVi)",
+        "offsets_from_thien_phu": {
+          "Thái Âm": 1,
+          "Tham Lang": 2,
+          "Cự Môn": 3,
+          "Thiên Tướng": 4,
+          "Thiên Lương": 5,
+          "Thất Sát": 6,
+          "Phá Quân": 10
+        }
+      }
+    }
+  },
+  "four_transformations": {
+    "method": "year_stem",
+    "source_reference": "lasotuvi/App.py",
+    "note": "Can index is 1-based in the legacy source.",
+    "rules": {
+      "Giáp": {
+        "Hóa Lộc": "Liêm Trinh",
+        "Hóa Quyền": "Phá Quân",
+        "Hóa Khoa": "Vũ Khúc",
+        "Hóa Kỵ": "Thái Dương"
+      },
+      "Ất": {
+        "Hóa Lộc": "Thiên Cơ",
+        "Hóa Quyền": "Thiên Lương",
+        "Hóa Khoa": "Tử Vi",
+        "Hóa Kỵ": "Thái Âm"
+      },
+      "Bính": {
+        "Hóa Lộc": "Thiên Đồng",
+        "Hóa Quyền": "Thiên Cơ",
+        "Hóa Khoa": "Văn Xương",
+        "Hóa Kỵ": "Liêm Trinh"
+      },
+      "Đinh": {
+        "Hóa Lộc": "Thái Âm",
+        "Hóa Quyền": "Thiên Đồng",
+        "Hóa Khoa": "Thiên Cơ",
+        "Hóa Kỵ": "Cự Môn"
+      },
+      "Mậu": {
+        "Hóa Lộc": "Tham Lang",
+        "Hóa Quyền": "Thái Âm",
+        "Hóa Khoa": "Hữu Bật",
+        "Hóa Kỵ": "Thiên Cơ"
+      },
+      "Kỷ": {
+        "Hóa Lộc": "Vũ Khúc",
+        "Hóa Quyền": "Tham Lang",
+        "Hóa Khoa": "Thiên Lương",
+        "Hóa Kỵ": "Văn Khúc"
+      },
+      "Canh": {
+        "Hóa Lộc": "Thái Dương",
+        "Hóa Quyền": "Vũ Khúc",
+        "Hóa Khoa": "Thiên Đồng",
+        "Hóa Kỵ": "Thái Âm"
+      },
+      "Tân": {
+        "Hóa Lộc": "Cự Môn",
+        "Hóa Quyền": "Thái Dương",
+        "Hóa Khoa": "Văn Khúc",
+        "Hóa Kỵ": "Văn Xương"
+      },
+      "Nhâm": {
+        "Hóa Lộc": "Thiên Lương",
+        "Hóa Quyền": "Tử Vi",
+        "Hóa Khoa": "Thiên Phủ",
+        "Hóa Kỵ": "Vũ Khúc"
+      },
+      "Quý": {
+        "Hóa Lộc": "Phá Quân",
+        "Hóa Quyền": "Cự Môn",
+        "Hóa Khoa": "Thái Âm",
+        "Hóa Kỵ": "Tham Lang"
+      }
+    },
+    "validation": {
+      "unknown_target_is_error": true,
+      "emit_transformation_star": true
+    }
+  },
+  "loc_ton": {
+    "base_by_year_stem": {
+      "Giáp": "Dần",
+      "Ất": "Mão",
+      "Bính": "Tị",
+      "Đinh": "Ngọ",
+      "Mậu": "Tị",
+      "Kỷ": "Ngọ",
+      "Canh": "Thân",
+      "Tân": "Dậu",
+      "Nhâm": "Hợi",
+      "Quý": "Tý"
+    },
+    "vong": [
+      "Lộc Tồn",
+      "Bác Sỹ",
+      "Lực Sỹ",
+      "Thanh Long",
+      "Tiểu Hao",
+      "Tướng Quân",
+      "Tấu Thư",
+      "Phi Liêm",
+      "Hỷ Thần",
+      "Bệnh Phù",
+      "Đại Hao",
+      "Phục Binh",
+      "Quan Phù"
+    ],
+    "direction_rule": "yang_male_yin_female_forward_else_reverse"
+  },
+  "thai_tue": {
+    "vong": [
+      "Thái Tuế",
+      "Thiếu Dương",
+      "Tang Môn",
+      "Thiếu Âm",
+      "Quan Phù",
+      "Tử Phù",
+      "Tuế Phá",
+      "Long Đức",
+      "Bạch Hổ",
+      "Phúc Đức",
+      "Điếu Khách",
+      "Trực Phù"
+    ],
+    "base": "birth_year_branch"
+  },
+  "trang_sinh": {
+    "stages": [
+      "Tràng Sinh",
+      "Mộc Dục",
+      "Quan Đới",
+      "Lâm Quan",
+      "Đế Vượng",
+      "Suy",
+      "Bệnh",
+      "Tử",
+      "Mộ",
+      "Tuyệt",
+      "Thai",
+      "Dưỡng"
+    ],
+    "direction_rule": "configurable_by_bureau_and_gender",
+    "source_reference": "lasotuvi/App.py",
+    "must_be_explicit_before_production": true
+  },
+  "tuan_triet": {
+    "tuan": {
+      "algorithm": "xun_void_from_year_stem_branch",
+      "coverage": 2
+    },
+    "triet": {
+      "algorithm": "year_stem_pair_void",
+      "coverage": 2
+    },
+    "representation": "two_adjacent_palaces"
+  },
+  "minor_stars": {
+    "catalog_complete": true,
+    "placement_rules_status": "partial",
+    "required_rule_families": [
+      "van_xuong_van_khuc",
+      "ta_phu_huu_bat",
+      "thien_khoi_thien_viet",
+      "long_tri_phuong_cac",
+      "tam_thai_bat_toa",
+      "an_quang_thien_quy",
+      "thien_ma_hoa_cai_kiep_sat_dao_hoa",
+      "hong_loan_thien_hy",
+      "co_than_qua_tu",
+      "thien_hinh_thien_rieu",
+      "thien_quan_thien_phuc",
+      "thien_giai_dia_giai",
+      "thien_tai_thien_tho",
+      "pha_toai",
+      "dau_quan"
+    ]
+  },
+  "major_cycles": {
+    "enabled": true,
+    "duration_years": 10,
+    "direction_rule": "yang_male_or_yin_female_forward_else_reverse",
+    "start_age_rule": {
+      "algorithm": "distance_to_jie_qi",
+      "unit": "3_days_per_year",
+      "remainder_conversion": {
+        "2_days": 8,
+        "1_day": 4
+      },
+      "note": "Must be matched to the project's chosen school/calendar implementation."
+    },
+    "sequence": "palace_order_from_menh",
+    "validation": {
+      "continuous": true,
+      "no_overlap": true
+    }
+  },
+  "minor_cycles": {
+    "enabled": true,
+    "type": "tieu_han",
+    "base": "year_branch",
+    "direction": "school_dependent",
+    "source_reference": "lasotuvi/App.py"
+  },
+  "annual_flow": {
+    "enabled": true,
+    "dynamic_stars": [
+      "Lưu Thái Tuế",
+      "Lưu Lộc Tồn",
+      "Lưu Kình Dương",
+      "Lưu Đà La",
+      "Lưu Thiên Khôi",
+      "Lưu Thiên Việt",
+      "Lưu Thiên Mã",
+      "Lưu Hóa Lộc",
+      "Lưu Hóa Quyền",
+      "Lưu Hóa Khoa",
+      "Lưu Hóa Kỵ"
+    ],
+    "requires": [
+      "target_year",
+      "birth_year_stem",
+      "birth_year_branch"
+    ],
+    "status": "requires_python_implementation"
+  },
+  "calculation_pipeline": [
+    "normalize_birth_input",
+    "solar_to_lunar_if_needed",
+    "calculate_can_chi",
+    "calculate_menh_than",
+    "calculate_cuc",
+    "place_14_main_stars",
+    "place_loc_ton_ring",
+    "place_thai_tue_ring",
+    "place_trang_sinh",
+    "place_auxiliary_stars",
+    "place_tuan_triet",
+    "apply_four_transformations",
+    "calculate_major_cycles",
+    "calculate_minor_cycle",
+    "calculate_annual_flow",
+    "validate_chart"
+  ],
+  "validation": {
+    "required_palace_count": 12,
+    "required_main_star_count": 14,
+    "unique_branch_per_palace": true,
+    "unknown_star_is_error": true,
+    "uncertain_items_are_not_facts": true,
+    "formula_source_required": true
+  },
+  "sources": [
+    {
+      "name": "tuviad",
+      "url": "https://github.com/manhlee1196-boop/tuviad",
+      "purpose": "target architecture"
+    },
+    {
+      "name": "lasotuvi",
+      "url": "https://github.com/doanguyen/lasotuvi",
+      "purpose": "open-source Vietnamese Tử Vi calculation reference"
+    },
+    {
+      "name": "tuvi-neo",
+      "url": "https://github.com/implicit-invocation/tuvi-neo",
+      "purpose": "cross-check for 140+ star implementation"
+    },
+    {
+      "name": "TuViMCP",
+      "url": "https://github.com/nmhaaa3218/TuViMCP",
+      "purpose": "cross-check for Python JSON output and vận hạn"
+    }
+  ],
+  "source_policy": {
+    "do_not_mix_schools_silently": true,
+    "every_formula_must_have_source": true,
+    "school": "Vietnamese consensus computational baseline",
+    "production_note": "Where sources disagree, keep the rule configurable and record the selected method."
+  }
+}
