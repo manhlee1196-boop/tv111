@@ -8,13 +8,25 @@ except Exception:
 
 
 def get_secret(name: str, default: str = "") -> str:
+    """
+    Ưu tiên Streamlit Secrets.
+    Nếu không có thì lấy Environment Variable.
+    """
+
+    # Streamlit Cloud
     if st is not None:
         try:
-            if name in st.secrets:
-                return str(st.secrets[name])
+            value = st.secrets.get(name)
+
+            if value is not None:
+                return str(value).strip()
         except Exception:
             pass
-    return str(os.environ.get(name, default) or "")
+
+    # Local / Environment
+    return str(
+        os.environ.get(name, default) or ""
+    ).strip()
 
 
 @dataclass(frozen=True)
@@ -26,7 +38,17 @@ class Config:
 
 def load_config() -> Config:
     return Config(
-        gemini_api_key=get_secret("GEMINI_API_KEY"),
-        gemini_model=get_secret("GEMINI_MODEL", "gemini-2.5-flash"),
-        timezone=get_secret("TZ", "Asia/Ho_Chi_Minh"),
+        gemini_api_key=get_secret(
+            "GEMINI_API_KEY"
+        ),
+
+        gemini_model=get_secret(
+            "GEMINI_MODEL",
+            "gemini-3.6-flash"
+        ),
+
+        timezone=get_secret(
+            "TZ",
+            "Asia/Ho_Chi_Minh"
+        ),
     )
